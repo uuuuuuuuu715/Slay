@@ -71,8 +71,8 @@
 <style>
 #sisyphus-tip {
   position: absolute;
-  left: 18%;
-  top: 43%;
+  left: 12%;
+  top: 33%;
   z-index: 9999;
 
   background: #f3e4be;
@@ -84,7 +84,7 @@
   padding: 8px 12px;
 
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(11px, 1.2vw, 16px);
+  font-size: clamp(16px, 1.6vw, 23px);
   font-style: italic;
   letter-spacing: .02em;
 
@@ -93,9 +93,9 @@
   pointer-events: none;
 
   opacity: 0;
-  transform: translateY(5px);
+  transform: rotate(-15deg) translateY(5px); 
 
-  animation: showSisyphusTip .45s ease .7s forwards;
+  animation: showSisyphusTip .45s ease 1s forwards;
 }
 
 #sisyphus-tip::after {
@@ -119,7 +119,7 @@
 @keyframes showSisyphusTip {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: rotate(-15deg) translateY(0);
   }
 }
 
@@ -143,7 +143,7 @@ window.addEventListener("load", function () {
   const tip = document.createElement("div");
 
   tip.id = "sisyphus-tip";
-  tip.textContent = "Press the boulder!";
+  tip.textContent = "Give me a hand?";
 
   poster.appendChild(tip);
 
