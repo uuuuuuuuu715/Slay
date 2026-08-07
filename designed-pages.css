@@ -1,0 +1,212 @@
+:root {
+  --cream: #fff0d5;
+  --ink: #201713;
+}
+
+.design-page {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--page-bg);
+  color: var(--page-text, #111);
+  overflow-x: hidden;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.design-piece {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+/* Expandable middle: the lower artwork is normal document flow,
+   so every new paragraph/card/link pushes it farther down automatically. */
+.expandable-content {
+  width: min(82%, 980px);
+  margin: 0 auto;
+  min-height: clamp(430px, 40vw, 760px);
+  padding: clamp(2.5rem, 6vw, 6.5rem) 0;
+}
+
+.expandable-content > :first-child { margin-top: 0; }
+.expandable-content > :last-child { margin-bottom: 0; }
+
+.expandable-content h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 500;
+  line-height: 1.05;
+  margin: 0 0 1.6rem;
+}
+
+.expandable-content h3 {
+  font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+  margin: 2.2rem 0 .8rem;
+}
+
+.expandable-content p,
+.expandable-content li,
+.expandable-content blockquote {
+  font-size: clamp(1rem, 1.45vw, 1.25rem);
+  line-height: 1.72;
+}
+
+.expandable-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Optional linked cards for Archive / Charities / About.
+   Wrap anything you add in <a class="content-link" href="page.html">...</a>. */
+.content-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid currentColor;
+  padding: 1.4rem;
+  margin: 1rem 0;
+  transition: transform .18s ease, opacity .18s ease;
+}
+.content-link:hover,
+.content-link:focus-visible {
+  transform: translateY(-2px);
+  opacity: .78;
+  outline: none;
+}
+
+/* MONTHLY EDITION */
+.issue-editor {
+  width: min(86%, 1040px);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 5rem) 0 clamp(3rem, 6vw, 6rem);
+}
+.issue-card {
+  background: #fff0d5;
+  color: #16110d;
+  padding: clamp(1.4rem, 3vw, 2.7rem);
+  min-height: 330px;
+  box-shadow: 0 22px 24px rgba(0,0,0,.12);
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) 1fr;
+  gap: clamp(1.2rem, 4vw, 3.4rem);
+  align-items: start;
+}
+.issue-meta input,
+.issue-title input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: .15rem 0;
+}
+.issue-meta input:focus,
+.issue-title input:focus {
+  outline: none;
+  border-bottom-color: currentColor;
+}
+.issue-meta input { font-size: clamp(1rem, 1.6vw, 1.35rem); }
+.issue-title input {
+  font-size: clamp(1.7rem, 3.2vw, 3.5rem);
+  text-align: center;
+}
+.read-issue {
+  display: table;
+  margin: clamp(2rem, 4vw, 3.5rem) auto 0;
+  border: 3px solid #e33a30;
+  padding: 1rem 1.3rem;
+  color: #16110d;
+  text-decoration: none;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1.05;
+}
+.read-issue .arrow {
+  display: block;
+  text-align: center;
+  color: #e33a30;
+  font-size: 2.5rem;
+  line-height: .8;
+  margin-top: .4rem;
+}
+
+/* SUBMIT */
+.submit-content {
+  width: min(82%, 760px);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 5rem) 0 clamp(3rem, 5vw, 5rem);
+}
+.submit-card {
+  background: #eee0c4;
+  color: #231b17;
+  border: 2px solid #c8a35b;
+  padding: clamp(1.4rem, 3vw, 2.5rem);
+}
+.submit-card h2 { margin: 0 0 1.2rem; font-size: clamp(1.5rem, 2.5vw, 2.15rem); }
+.form-row { margin-bottom: 1.35rem; }
+.form-row label { display:block; font-weight:700; margin-bottom:.55rem; font-size:1.05rem; }
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row select,
+.form-row textarea {
+  width:100%;
+  border:1px solid #3a2e28;
+  border-radius:4px;
+  background:#f8eedc;
+  color:#231b17;
+  padding:.78rem;
+  font:inherit;
+}
+.form-row textarea { min-height: 105px; resize: vertical; }
+
+.drop-zone {
+  position: relative;
+  border: 2px dashed #8a7361;
+  background: #f8eedc;
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: background .16s ease, border-color .16s ease;
+}
+.drop-zone.dragging {
+  background: #fff7e9;
+  border-color: #8f3340;
+}
+.drop-zone input[type="file"] {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+  cursor:pointer;
+}
+.file-status { margin-top:.7rem; font-size:.92rem; opacity:.75; }
+.submit-button {
+  border: 1px solid #8f3340;
+  background: transparent;
+  color:#8f3340;
+  padding:.8rem 1.2rem;
+  font: 700 1rem Georgia, "Times New Roman", serif;
+  letter-spacing:.05em;
+  cursor:pointer;
+}
+.submit-note { margin-top:1rem; font-size:.86rem; line-height:1.45; opacity:.7; }
+
+/* Blank issue page */
+.blank-issue {
+  min-height:100vh;
+  background:#f6f0e5;
+  color:#1b1513;
+  padding:clamp(2rem,6vw,6rem);
+  font-family:Georgia,"Times New Roman",serif;
+}
+.blank-issue h1 { font-size:clamp(2.5rem,7vw,6rem); font-weight:500; margin:0 0 1rem; }
+.blank-issue p { font-size:1.1rem; opacity:.55; }
+
+@media (max-width:700px) {
+  .expandable-content, .submit-content { width: 88%; }
+  .issue-card { grid-template-columns: 1fr; }
+  .issue-title input { text-align:left; }
+}
