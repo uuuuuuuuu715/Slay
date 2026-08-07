@@ -74,7 +74,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   width: 68%;
   height: 62%;
   overflow: hidden;
-  opacity: 20;
+  opacity: 0;
   clip-path: polygon(18% 20%, 31% 9%, 54% 5%, 75% 12%, 90% 29%, 91% 64%, 76% 82%, 55% 92%, 31% 85%, 12% 66%, 10% 39%);
   filter: saturate(.9) contrast(.95);
   mix-blend-mode: screen;
@@ -275,28 +275,24 @@ button, a { -webkit-tap-highlight-color: transparent; }
   100% { opacity: 0; transform: translate3d(var(--dx), var(--dy),0) scale(1.8); }
 }
 @keyframes raveWake {
-  0% { opacity: 0; filter: saturate(.65) brightness(.65); }
-  28% { opacity: .28; }
-  100% { opacity: .92; filter: saturate(.95) brightness(.9); }
+  0% { opacity: 0; filter: saturate(.8) brightness(.65); }
+  18% { opacity: .55; }
+  100% { opacity: 1; filter: saturate(1.5) brightness(1.15); }
 }
-@keyframes amberFlicker { 0%,100%{opacity:.12;transform:scale(.96)} 45%{opacity:.3;transform:scale(1.03)} 63%{opacity:.18} }
+@keyframes amberFlicker { 0%,100%{opacity:.55;transform:scale(.96)} 45%{opacity:1;transform:scale(1.08)} 63%{opacity:.78} }
 @keyframes washA { from{transform:translate3d(-2%,0,0) scale(.96)} to{transform:translate3d(2%,1%,0) scale(1.04)} }
 @keyframes washB { from{transform:translate3d(1%,-1%,0) scale(1.02)} to{transform:translate3d(-2%,2%,0) scale(.96)} }
 @keyframes driftA { from{transform:translate3d(-3%,0,0) scale(.95)} to{transform:translate3d(4%,-6%,0) scale(1.08)} }
 @keyframes driftB { from{transform:translate3d(4%,2%,0) scale(1.03)} to{transform:translate3d(-4%,-4%,0) scale(.96)} }
-@keyframes laser1 { from{transform:rotate(-20deg);opacity:.07} to{transform:rotate(-8deg);opacity:.17} }
-@keyframes laser2 { from{transform:rotate(20deg);opacity:.06} to{transform:rotate(8deg);opacity:.14} }
-@keyframes laser3 { from{transform:rotate(1deg);opacity:.04} to{transform:rotate(9deg);opacity:.12} }
+@keyframes laser1 { from{transform:rotate(-20deg);opacity:.8} to{transform:rotate(-8deg);opacity:1} }
+@keyframes laser2 { from{transform:rotate(20deg);opacity:.56} to{transform:rotate(8deg);opacity:1} }
+@keyframes laser3 { from{transform:rotate(1deg);opacity:.8} to{transform:rotate(9deg);opacity:1} }
 @keyframes strobe {
   0%, 66%, 68%, 92%, 94%, 100% { opacity: 0; }
-  67% { opacity: .10; }
-  93% { opacity: .06; }
+  67% { opacity: .80; }
+  93% { opacity: .6; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
-}
-.rave.on{
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
 }
