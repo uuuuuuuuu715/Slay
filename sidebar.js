@@ -83,7 +83,24 @@
   // Hamburger
   const button = document.createElement("button");
   button.className = "menu-toggle";
-  button.innerHTML = "☰";
+  button.innerHTML = button.innerHTML = `
+<div style="
+display:flex;
+flex-direction:column;
+align-items:center;
+font-family:Georgia,'Times New Roman',serif;
+line-height:1;
+">
+  <span style="font-size:24px;">☰</span>
+  <span style="
+    font-size:8px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    margin-top:4px;
+  ">
+    Menu
+  </span>
+</div>
   document.body.appendChild(button);
 
   // Dark overlay
