@@ -81,19 +81,19 @@ button, a { -webkit-tap-highlight-color: transparent; }
   pointer-events: none;
 }
 .rave > * { position: absolute; }
-.rave-darken { inset: 0; background: rgba(0,0,0,.62); }
+.rave-darken { inset: 0; background: rgba(0,0,0,.18); }
 .amber-depth {
   left: 33%; top: 36%; width: 36%; height: 42%;
   border-radius: 50%;
   background: radial-gradient(ellipse, rgba(232,173,86,.55) 0%, rgba(155,90,36,.23) 34%, transparent 72%);
   filter: blur(16px);
-  opacity: .42;
+  opacity: .60;
   animation: amberFlicker 3.4s ease-in-out infinite;
 }
 .colour-wash {
   inset: 8% 10% 13%;
   filter: blur(28px);
-  opacity: .35;
+  opacity: .65;
   mix-blend-mode: screen;
 }
 .wash-a {
@@ -110,10 +110,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   border-radius: 50%;
   background: radial-gradient(ellipse, rgba(225,220,205,.21), rgba(225,220,205,.08) 45%, transparent 74%);
   filter: blur(12px);
-  opacity: .28;
+  opacity: .40;
 }
 .haze-a { bottom: 17%; animation: driftA 8s ease-in-out infinite alternate; }
-.haze-b { bottom: 31%; opacity: .20; animation: driftB 11s ease-in-out infinite alternate; }
+.haze-b { bottom: 31%; opacity: .30; animation: driftB 11s ease-in-out infinite alternate; }
 
 .laser {
   left: 49%;
@@ -121,7 +121,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   width: 46%;
   height: 1px;
   transform-origin: 0 50%;
-  opacity: .55;
+  opacity: .85;
   filter: blur(.35px) drop-shadow(0 0 2px currentColor);
   background: currentColor;
 }
@@ -130,7 +130,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   position: absolute;
   inset: -3px 0;
   background: linear-gradient(90deg, currentColor, transparent);
-  opacity: .75;
+  opacity: .85;
   filter: blur(4px);
 }
 .laser-1 { color: rgba(147,117,205,.75); transform: rotate(-18deg); animation: laser1 5.7s ease-in-out infinite alternate; }
