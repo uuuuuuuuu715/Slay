@@ -1,5 +1,5 @@
 :root {
-  --sidebar-width: clamp(105px, 11vw, 130px);
+  --sidebar-width: clamp(85px, 6vw, 100px);
   --sidebar-bg: #1b1513;
   --sidebar-text: #eee5d5;
   --sidebar-muted: #9f9384;
