@@ -6,20 +6,35 @@
   <meta name="theme-color" content="#4b0004" />
   <title>Plato's Rave</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="sidebar.css" />
 </head>
-<body>
+<body class="has-sidebar">
+
+<aside class="site-sidebar" aria-label="Main navigation">
+  <div class="sidebar-title">PLATO'S <em>RAVE</em></div>
+  <div class="sidebar-rule"></div>
+  <p class="sidebar-tagline">a philosophy magazine</p>
+  <nav class="sidebar-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="charities.html">Charities</a>
+      <a href="edition.html">Latest Edition</a>
+      <a href="archive.html">Archive</a>
+      <a href="submit.html">Submit</a>
+  </nav>
+  <p class="sidebar-copyright">© 2026 Plato's Rave.</p>
+</aside>
+
+<div class="site-main">
   <main id="home" class="poster-shell" aria-label="Plato's Rave home page">
     <section id="poster" class="poster" aria-live="polite">
-      <!-- The original poster NEVER changes. -->
       <img class="poster-base" src="frame1.png" alt="Plato's Rave poster with Sisyphus pushing a boulder in front of a cave" draggable="false" />
 
-      <!-- Only the illustrated cave/Sisyphus area is replaced during the animation. -->
       <div id="sceneWindow" class="scene-window" aria-hidden="true">
         <img id="scene2" class="scene-frame" src="frame2.png" alt="" draggable="false" />
         <img id="scene3" class="scene-frame" src="frame3.png" alt="" draggable="false" />
         <img id="scene4" class="scene-frame" src="frame4.png" alt="" draggable="false" />
 
-        <!-- Rave effects are restrained to the inner cave opening. -->
         <div id="rave" class="rave" aria-hidden="true">
           <div class="rave-darken"></div>
           <div class="amber-depth"></div>
@@ -37,8 +52,8 @@
           <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
         </div>
 
-        <!-- Temporary clean navigation labels. Replace these later with your own photographed/collage objects. -->
-        <nav id="caveNav" class="cave-nav" aria-label="Explore Plato's Rave">
+        <!-- These four are ONLY cave extras. They are intentionally absent from the sidebar. -->
+        <nav id="caveNav" class="cave-nav" aria-label="Cave extras">
           <a href="philosopher.html" style="--x:36%;--y:58%">Philosopher</a>
           <a href="music.html" style="--x:47%;--y:67%">Music</a>
           <a href="books.html" style="--x:59%;--y:58%">Books</a>
@@ -46,11 +61,11 @@
         </nav>
       </div>
 
-      <!-- Large, forgiving tap zone over the original boulder. -->
       <button id="pushButton" class="push-zone" type="button" aria-label="Help Sisyphus move the boulder"></button>
     </section>
   </main>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

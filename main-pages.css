@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+.basic-page {
+  min-height: 100vh;
+  padding: clamp(42px, 7vw, 100px);
+  background: #f3eee4;
+  color: #1b1513;
+  font-family: Georgia, "Times New Roman", serif;
+}
+.basic-page h1 {
+  margin: 0 0 35px;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: .95;
+  font-weight: 500;
+}
+.basic-page .content {
+  width: min(820px, 100%);
+  font-size: clamp(1rem,1.4vw,1.25rem);
+  line-height: 1.72;
+}
+.basic-page .placeholder { opacity: .45; font-style: italic; }

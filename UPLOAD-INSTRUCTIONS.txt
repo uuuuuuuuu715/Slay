@@ -1,0 +1,36 @@
+PLATO'S RAVE — FINAL SIDEBAR STRUCTURE
+
+UPLOAD/REPLACE:
+- index.html
+- sidebar.css
+- philosopher.html
+- music.html
+- books.html
+- fashion.html
+- section-pages.css
+- all *-top.png and *-bottom.png files
+- about.html
+- charities.html
+- edition.html
+- archive.html
+- submit.html
+- main-pages.css
+
+KEEP YOUR EXISTING:
+- style.css  (your cave/rave styling, including your brightness edits)
+- script.js  (your working Sisyphus animation)
+- frame1.png
+- frame2.png
+- frame3.png
+- frame4.png
+
+SIDEBAR ON EVERY PAGE:
+Home / About / Charities / Latest Edition / Archive / Submit
+
+CAVE-ONLY EXTRAS:
+Philosopher / Music / Books / Fashion
+These do NOT appear in the sidebar.
+
+IMPORTANT:
+The homepage index.html references frame1.png etc. in the repository ROOT,
+matching your current GitHub setup.
