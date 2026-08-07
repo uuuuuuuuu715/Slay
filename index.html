@@ -67,5 +67,143 @@
 </div>
 
 <script src="script.js"></script>
+  <style>
+  #cave-click-hint {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    overflow: visible;
+    opacity: 1;
+    transition: opacity .5s ease;
+  }
+
+  #cave-click-hint path {
+    fill: none;
+    stroke: #f4dfb2;
+    stroke-width: 3;
+    stroke-linecap: round;
+
+    filter: drop-shadow(0 0 5px rgba(244, 223, 178, .8));
+
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+
+    animation:
+      traceCave 1.4s ease forwards,
+      caveGlow .7s ease-in-out 1.4s 2 alternate;
+  }
+
+  @keyframes traceCave {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes caveGlow {
+    from {
+      opacity: .45;
+      filter: drop-shadow(0 0 3px rgba(244, 223, 178, .45));
+    }
+
+    to {
+      opacity: 1;
+      filter: drop-shadow(0 0 9px rgba(244, 223, 178, .95));
+    }
+  }
+</style>
+
+<script>
+window.addEventListener("load", () => {
+
+  const caveButton = document.getElementById("pushButton");
+
+  if (!caveButton) return;
+
+  const svg = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "svg"
+  );
+
+  svg.id = "cave-click-hint";
+
+  const path = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "path"
+  );
+
+  svg.appendChild(path);
+  document.body.appendChild(svg);
+
+  function positionHint() {
+
+    const r = caveButton.getBoundingClientRect();
+
+    const padding = 8;
+
+    svg.style.left = (r.left - padding) + "px";
+    svg.style.top = (r.top - padding) + "px";
+    svg.style.width = (r.width + padding * 2) + "px";
+    svg.style.height = (r.height + padding * 2) + "px";
+
+    svg.setAttribute(
+      "viewBox",
+      `0 0 ${r.width + padding * 2} ${r.height + padding * 2}`
+    );
+
+    const w = r.width + padding * 2;
+    const h = r.height + padding * 2;
+
+    /*
+      Slightly irregular oval so it feels more like
+      the cave opening than a boring rectangle.
+    */
+
+    path.setAttribute(
+      "d",
+      `
+      M ${w * .12} ${h * .55}
+
+      C ${w * .08} ${h * .25},
+        ${w * .25} ${h * .07},
+        ${w * .50} ${h * .06}
+
+      C ${w * .76} ${h * .06},
+        ${w * .94} ${h * .27},
+        ${w * .91} ${h * .57}
+
+      C ${w * .89} ${h * .83},
+        ${w * .70} ${h * .94},
+        ${w * .49} ${h * .92}
+
+      C ${w * .27} ${h * .93},
+        ${w * .13} ${h * .80},
+        ${w * .12} ${h * .55}
+
+      Z
+      `
+    );
+  }
+
+  positionHint();
+
+  window.addEventListener("resize", positionHint);
+  window.addEventListener("scroll", positionHint);
+
+  /* Fade it away after the little tracing animation */
+  setTimeout(() => {
+    svg.style.opacity = "0";
+  }, 3000);
+
+  /* Immediately remove it when they click the cave */
+  caveButton.addEventListener("click", () => {
+    svg.style.opacity = "0";
+
+    setTimeout(() => {
+      svg.remove();
+    }, 500);
+  });
+
+});
+</script>
 </body>
 </html>
