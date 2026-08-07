@@ -296,3 +296,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
 }
+.rave.on{
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
