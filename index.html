@@ -68,61 +68,66 @@
 
 <script src="script.js"></script>
 <script src="sidebar.js"></script>
-  <style>
-  #caveTrace {
-    position: absolute;
-    left: 14%;
-    top: 31%;
-    width: 74%;
-    height: 37%;
-    z-index: 50;
-    pointer-events: none;
-    overflow: visible;
+<style>
+#sisyphus-tip {
+  position: absolute;
+  left: 18%;
+  top: 43%;
+  z-index: 9999;
+
+  background: #f3e4be;
+  color: #3b2417;
+
+  border: 1px solid #8e6a3d;
+  border-radius: 4px;
+
+  padding: 8px 12px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(11px, 1.2vw, 16px);
+  font-style: italic;
+  letter-spacing: .02em;
+
+  box-shadow: 0 3px 8px rgba(0,0,0,.16);
+
+  pointer-events: none;
+
+  opacity: 0;
+  transform: translateY(5px);
+
+  animation: showSisyphusTip .45s ease .7s forwards;
+}
+
+#sisyphus-tip::after {
+  content: "";
+  position: absolute;
+
+  left: 24px;
+  bottom: -8px;
+
+  width: 14px;
+  height: 14px;
+
+  background: #f3e4be;
+
+  border-right: 1px solid #8e6a3d;
+  border-bottom: 1px solid #8e6a3d;
+
+  transform: rotate(45deg);
+}
+
+@keyframes showSisyphusTip {
+  to {
     opacity: 1;
-    transition: opacity .5s ease;
+    transform: translateY(0);
   }
+}
 
-  #caveTrace path {
-    fill: none;
-    stroke: #f6dfaa;
-    stroke-width: 0.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-
-    filter:
-      drop-shadow(0 0 1.5px #f6dfaa)
-      drop-shadow(0 0 4px rgba(246,223,170,.7));
-
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-
-    animation:
-      drawCave 1.5s ease-out forwards,
-      cavePulse .7s ease-in-out 1.5s 3 alternate;
-  }
-
-  @keyframes drawCave {
-    from {
-      stroke-dashoffset: 1;
-    }
-
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-
-  @keyframes cavePulse {
-    from {
-      opacity: .45;
-    }
-
-    to {
-      opacity: 1;
-      filter:
-        drop-shadow(0 0 3px #f6dfaa)
-        drop-shadow(0 0 8px rgba(246,223,170,.9));
-    }
-  }
+#sisyphus-tip.hide {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .25s ease, transform .25s ease;
+}
 </style>
 
 <script>
@@ -135,62 +140,22 @@ window.addEventListener("load", function () {
 
   poster.style.position = "relative";
 
-  const trace = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "svg"
-  );
+  const tip = document.createElement("div");
 
-  trace.id = "caveTrace";
-  trace.setAttribute("viewBox", "0 0 100 100");
+  tip.id = "sisyphus-tip";
+  tip.textContent = "Press the boulder!";
 
-  trace.innerHTML = `
-    <path
-      pathLength="1"
-      d="
-        M 8 58
+  poster.appendChild(tip);
 
-        C 7 39,
-          15 19,
-          34 10
+  button.addEventListener("click", function () {
 
-        C 49 3,
-          70 7,
-          84 21
-
-        C 95 32,
-          98 51,
-          91 68
-
-        C 85 84,
-          67 94,
-          47 94
-
-        C 27 94,
-          12 83,
-          8 67
-
-        C 7 64,
-          7 61,
-          8 58
-        Z
-      "
-    />
-  `;
-
-  poster.appendChild(trace);
-
-  function removeTrace() {
-    trace.style.opacity = "0";
+    tip.classList.add("hide");
 
     setTimeout(function () {
-      trace.remove();
-    }, 500);
-  }
+      tip.remove();
+    }, 300);
 
-  button.addEventListener("click", removeTrace, { once: true });
-
-  /* Let it trace + glow, then disappear on its own */
-  setTimeout(removeTrace, 4300);
+  }, { once: true });
 
 });
 </script>
