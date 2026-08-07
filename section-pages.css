@@ -1,0 +1,78 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--page-bg);
+  color: #1f1a22;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.poster-page {
+  width: min(100%, 1414px);
+  margin: 0 auto;
+  background: var(--page-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.poster-slice {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--page-bg);
+}
+.poster-slice img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+/* Exact original artwork, simply clipped into top + bottom pieces. */
+.poster-top {
+  aspect-ratio: 1414 / 720;
+}
+.poster-top img { top: 0; }
+
+.article-content {
+  position: relative;
+  z-index: 2;
+  min-height: 360px;
+  padding: clamp(34px, 5vw, 82px) clamp(28px, 8vw, 125px);
+  background: var(--page-bg);
+}
+.article-content > :first-child { margin-top: 0; }
+.article-content > :last-child { margin-bottom: 0; }
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+  font-weight: 500;
+  line-height: 1.08;
+}
+.article-content h1 { font-size: clamp(32px, 5vw, 68px); }
+.article-content h2 { font-size: clamp(25px, 3vw, 42px); }
+.article-content p,
+.article-content li {
+  font-size: clamp(17px, 1.7vw, 24px);
+  line-height: 1.65;
+}
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.article-content a { color: inherit; }
+
+.poster-bottom {
+  aspect-ratio: 1414 / 760;
+}
+.poster-bottom img { bottom: 0; }
+
+/* The middle can become any length. The bottom artwork is pushed down naturally. */
+@media (max-width: 700px) {
+  .poster-top { aspect-ratio: 1414 / 690; }
+  .poster-bottom { aspect-ratio: 1414 / 780; }
+  .article-content {
+    min-height: 280px;
+    padding: 30px 24px 44px;
+  }
+}
