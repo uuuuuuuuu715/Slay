@@ -1,37 +1,83 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Submit — Plato's Rave</title>
-  <link rel="stylesheet" href="sidebar.css">
-  <link rel="stylesheet" href="main-pages.css">
-</head>
-<body class="has-sidebar">
-
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Submit — Plato's Rave</title>
+<link rel="stylesheet" href="sidebar.css"><link rel="stylesheet" href="designed-pages.css">
+</head><body class="has-sidebar">
 <aside class="site-sidebar" aria-label="Main navigation">
   <div class="sidebar-title">PLATO'S <em>RAVE</em></div>
   <div class="sidebar-rule"></div>
   <p class="sidebar-tagline">a philosophy magazine</p>
   <nav class="sidebar-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="charities.html">Charities</a>
-      <a href="edition.html">Latest Edition</a>
-      <a href="archive.html">Archive</a>
-      <a href="submit.html" class="active">Submit</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="charities.html">Charities</a>
+    <a href="edition.html">Latest Edition</a>
+    <a href="archive.html">Archive</a>
+    <a href="submit.html" class="active">Submit</a>
   </nav>
   <p class="sidebar-copyright">© 2026 Plato's Rave.</p>
 </aside>
-
 <div class="site-main">
-  <main class="basic-page">
-    <h1>Submit</h1>
-    <div class="content">
-      <p class="placeholder">This page is ready for you to add your content.</p>
-    </div>
-  </main>
-</div>
+<main class="design-page" style="--page-bg:#9bc2bb;--page-text:#251916;">
+<img class="design-piece" src="submit-top.png" alt="Get in the cave — Submit Here">
+<section class="submit-content">
+<form class="submit-card" action="https://formsubmit.co/YOUR_FORMSUBMIT_TOKEN" method="POST" enctype="multipart/form-data">
+  <h2>Send it over</h2>
 
-</body>
-</html>
+  <input type="hidden" name="_subject" value="New Plato's Rave submission">
+  <input type="hidden" name="_template" value="table">
+
+  <div class="form-row">
+    <label for="submission-name">Name</label>
+    <input id="submission-name" type="text" name="name" required autocomplete="name">
+  </div>
+
+  <div class="form-row">
+    <label for="submission-email">Email</label>
+    <input id="submission-email" type="email" name="email" required autocomplete="email">
+  </div>
+
+  <div class="form-row">
+    <label for="submission-type">What are you sending?</label>
+    <select id="submission-type" name="medium" required>
+      <option value="" selected disabled>Select one</option>
+      <option>Photography</option>
+      <option>Art</option>
+      <option>Essay</option>
+      <option>Poem</option>
+      <option>Critical review</option>
+      <option>Short fiction</option>
+      <option>Illustration / visual essay</option>
+      <option>Interview</option>
+      <option>Fashion or cultural feature</option>
+      <option>Other</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="submission-note">Anything we should know?</label>
+    <textarea id="submission-note" name="message" placeholder="Optional note, title, context, links, etc."></textarea>
+  </div>
+
+  <div class="form-row">
+    <label>Upload your work</label>
+    <div class="drop-zone" id="dropZone">
+      <div>
+        <strong>Drag & drop here</strong><br>
+        <span>or tap to choose an image, PDF, Word document, or other file</span>
+        <div class="file-status" id="fileStatus">No file selected</div>
+      </div>
+      <input id="attachment" type="file" name="attachment"
+        accept=".pdf,.doc,.docx,.txt,.rtf,.jpg,.jpeg,.png,.webp,.gif,.tif,.tiff,.heic,.pages,.odt">
+    </div>
+  </div>
+
+  <button class="submit-button" type="submit">Send submission</button>
+  <p class="submit-note">The form needs a one-time email-delivery setup before it can send from GitHub Pages. See SUBMISSION-SETUP.txt.</p>
+</form>
+</section>
+<img class="design-piece" src="submit-bottom.png" alt="">
+</main></div>
+<script src="submit.js"></script>
+</body></html>
