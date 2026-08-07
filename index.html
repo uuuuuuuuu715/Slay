@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#4b0004" />
+  <title>Plato's Rave</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="home" class="poster-shell" aria-label="Plato's Rave home page">
+    <section id="poster" class="poster" aria-live="polite">
+      <!-- The original poster NEVER changes. -->
+      <img class="poster-base" src="images/frame1.png" alt="Plato's Rave poster with Sisyphus pushing a boulder in front of a cave" draggable="false" />
+
+      <!-- Only the illustrated cave/Sisyphus area is replaced during the animation. -->
+      <div id="sceneWindow" class="scene-window" aria-hidden="true">
+        <img id="scene2" class="scene-frame" src="images/frame2.png" alt="" draggable="false" />
+        <img id="scene3" class="scene-frame" src="images/frame3.png" alt="" draggable="false" />
+        <img id="scene4" class="scene-frame" src="images/frame4.png" alt="" draggable="false" />
+
+        <!-- Rave effects are restrained to the inner cave opening. -->
+        <div id="rave" class="rave" aria-hidden="true">
+          <div class="rave-darken"></div>
+          <div class="amber-depth"></div>
+          <div class="colour-wash wash-a"></div>
+          <div class="colour-wash wash-b"></div>
+          <div class="haze haze-a"></div>
+          <div class="haze haze-b"></div>
+          <div class="laser laser-1"></div>
+          <div class="laser laser-2"></div>
+          <div class="laser laser-3"></div>
+          <div class="strobe"></div>
+        </div>
+
+        <div id="dust" class="dust" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+
+        <!-- Temporary clean navigation labels. Replace these later with your own photographed/collage objects. -->
+        <nav id="caveNav" class="cave-nav" aria-label="Explore Plato's Rave">
+          <a href="philosopher.html" style="--x:36%;--y:58%">Philosopher</a>
+          <a href="music.html" style="--x:47%;--y:67%">Music</a>
+          <a href="books.html" style="--x:59%;--y:58%">Books</a>
+          <a href="fashion.html" style="--x:69%;--y:67%">Fashion</a>
+        </nav>
+      </div>
+
+      <!-- Large, forgiving tap zone over the original boulder. -->
+      <button id="pushButton" class="push-zone" type="button" aria-label="Help Sisyphus move the boulder"></button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
