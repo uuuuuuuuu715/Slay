@@ -210,3 +210,8 @@
   .issue-card { grid-template-columns: 1fr; }
   .issue-title input { text-align:left; }
 }
+
+
+input[type="hidden"] {
+  display: none !important;
+}
