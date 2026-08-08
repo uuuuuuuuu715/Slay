@@ -82,7 +82,22 @@ body.menu-open .menu-toggle {
     }
   `;
   document.head.appendChild(style);
+// Add Submission Info link to sidebar
+const nav = document.querySelector(".sidebar-nav");
 
+if (nav && !nav.querySelector('a[href="submission-info.html"]')) {
+  const infoLink = document.createElement("a");
+  infoLink.href = "submission-info.html";
+  infoLink.textContent = "Submission Info";
+
+  const submitLink = nav.querySelector('a[href="submit.html"]');
+
+  if (submitLink) {
+    nav.insertBefore(infoLink, submitLink);
+  } else {
+    nav.appendChild(infoLink);
+  }
+}
   // Hamburger
   const button = document.createElement("button");
   button.className = "menu-toggle";
