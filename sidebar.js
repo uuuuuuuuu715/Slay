@@ -47,7 +47,10 @@
       z-index:10003;
       box-shadow:0 4px 15px rgba(0,0,0,.25);
     }
-
+body.menu-open .menu-toggle {
+  opacity: 0;
+  pointer-events: none;
+}
     .menu-backdrop{
       position:fixed;
       inset:0;
